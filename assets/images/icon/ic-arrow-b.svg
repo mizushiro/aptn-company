@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="30" viewBox="0 0 74 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_5" data-name="사각형 5" width="73.999" height="30" transform="translate(0 0.001)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="벡터_고급_개체" data-name="벡터 고급 개체" transform="translate(-234 -2197)">
+    <g id="벡터_고급_개체-2" data-name="벡터 고급 개체" transform="translate(234 2197)">
+      <g id="그룹_10" data-name="그룹 10">
+        <g id="그룹_9" data-name="그룹 9" clip-path="url(#clip-path)">
+          <line id="선_1" data-name="선 1" x1="70.036" transform="translate(0.001 15.002)" fill="none" stroke="#231815" stroke-width="5.221"/>
+        </g>
+      </g>
+      <path id="패스_5" data-name="패스 5" d="M57.927,0,55.434,2.687,68.633,15l-13.2,12.317L57.927,30,74,15Z" fill="#231815"/>
+    </g>
+    <path id="Color_Overlay" data-name="Color Overlay" d="M289.434,2224.314,302.63,2212l0,0-13.2-12.312,2.493-2.686L308,2212l-16.073,15ZM234,2212h0Z"/>
+  </g>
+</svg>
