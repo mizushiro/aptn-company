@@ -131,85 +131,15 @@ var tollTipLayer = function() {
 	})
 };
 
-
-const newHomeUI = {
-	layerEdit() {
-		const wraps= document.querySelectorAll('.r-box');
-		const act = (e) => {
-			const el = e.currentTarget;
-			const el_wrap = el.closest('.r-box');
-
-			el_wrap.classList.toggle('active')
-		}
-		for (let that of wraps) {
-			const btn = that.querySelector('.btn-edit');
-			const box = that.querySelector('.edit-box');
-
-			btn && btn.addEventListener('click', act);
-		}
-	},
-	tabScroll(){ 
-		const tabs = document.querySelectorAll('[data-tab]');
-		const top_h = document.querySelector('.header').offsetHeight + document.querySelector('.top-sticky-area').offsetHeight;
-		const array_tab_name = [];
-		const array_tit_top = [];
-		let last_know_scroll_position = 0;
-		let ticking = false;
-
-		const tabActive = (n) => {
-			const tabActive = document.querySelector('[data-tab].active');
-
-			tabActive.classList.remove('active');
-			tabs[n].classList.add('active');
-		}
-		const tabGo = (e) => {
-			const tab = e.currentTarget;
-			const name = tab.dataset.tab;
-			const tabTit = document.querySelector('[data-tabname="'+name+'"]');
-			let n = name === '사업안내' ? 0 : window.pageYOffset + tabTit.getBoundingClientRect().top - top_h;
-
-			window.scrollTo({
-				top: n,
-				behavior: 'smooth'
-			});
-		}
-		const doSomething = (scroll_pos) => {
-			for (var i = 0; i < array_tit_top.length; i++) {
-				let n = i - 1 < 0 ? 0 : i - 1;
-
-				if (array_tit_top[i] - top_h > scroll_pos) {
-					tabActive(n);
-					break;
-				}
-				if (array_tit_top[array_tit_top.length - 1] - top_h <= scroll_pos) {
-					tabActive(array_tit_top.length - 1);
-				}  
-			}
-		}
-
-		//event
-		window.addEventListener('scroll', (e) => {
-			last_know_scroll_position = window.scrollY;
-
-			if (!ticking) {
-				window.requestAnimationFrame(() => {
-					doSomething(last_know_scroll_position);
-					ticking = false;
-				});
-
-				ticking = true;
-			}
-		});
-
-		for (let btn of tabs) {
-			btn.addEventListener('click', tabGo);
-			
-			array_tab_name.push(btn.dataset.tab)
-			array_tit_top.push(Math.floor(document.querySelector('[data-tabname="'+ btn.dataset.tab +'"]').getBoundingClientRect().top + window.pageYOffset));
-		}
-
-	}
-}
+$(window).scroll(function(){
+    var scroll = $(document).scrollTop();
+    if(scroll >= 10 ){
+        $(".header").addClass("scroll");
+    }
+    else  if(scroll <= 10 ){
+        $(".header").removeClass("scroll");
+    }
+});
 
 
 $(document).ready(function(){
