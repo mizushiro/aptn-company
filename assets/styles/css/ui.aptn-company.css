@@ -321,7 +321,10 @@ html.scroll_off {overflow:hidden}
 .about-section-3-title:before {content:'';position:absolute;aspect-ratio:1/1;width:16px;background:url("../../images/about/section-3-1.svg") no-repeat 50% 50%;background-size:contain;left:0;top:-16px;transform: rotate(-90deg)}
 .about-section-3-title span {font-weight:700}
 .about-section-3-desc {font-size:13px;color:#999;margin-left:auto;flex-shrink:0}
-.about-section-3-group {margin-top:20px}
+.about-section-3-group {margin-top:20px;position:relative}
+.about-section-3-group .swiper-pagination {bottom:-30px}
+.about-section-3-group .swiper-pagination-bullet {background-color:#33CCCC;opacity:1;border-radius:999px}
+.about-section-3-group .swiper-pagination-bullet-active {background-color:#33CCCC;width:24px}
 .about-section-3-item {background-color:#fff;padding:20px;display:flex;position:relative;gap:8px;flex-direction:column}
 .about-logo {height:16px;aspect-ratio:93/26;background:url("../../images/common/logo.svg") no-repeat 0 0;background-size:contain;margin-bottom:8px}
 .about-section-3-item-link {position:absolute;top:0;left:0;right:0;bottom:0;z-index:2}
