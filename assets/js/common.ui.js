@@ -193,6 +193,7 @@ newhome.scroll = {
 				ticking = true;
 			}
 		});
+		check();
 	},
 	check() {
 		const wrap = document.querySelector('.content-wrap');
