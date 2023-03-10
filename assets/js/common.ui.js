@@ -193,35 +193,36 @@ newhome.scroll = {
 				ticking = true;
 			}
 		});
-		check();
+		setTimeout(() => {
+			this.check();
+		}, 400);
+		
 	},
 	check() {
-		const wrap = document.querySelector('.content-wrap');
-		const items = wrap.querySelectorAll('[data-parallax]');
-
+		const items = document.querySelectorAll('[data-parallax]');
 		for (let item of items) {
 			const item_t = item.getBoundingClientRect().top;
 			const item_h = item.offsetHeight;
 			const win_h = window.innerHeight;
 			const scroll_t = document.documentElement.scrollTop;
 
-			((item_t+scroll_t-win_h) < scroll_t) ?
-				item.classList.add('parallax-s-0') : 
-				item.classList.remove('parallax-s-0');
-
-			((item_t+scroll_t) < scroll_t) ?
-				item.classList.add('parallax-s-1') : 
-				item.classList.remove('parallax-s-1');
-
-			((item_t+scroll_t-win_h+item_h) < scroll_t) ?
-				item.classList.add('parallax-e-0') : 
-				item.classList.remove('parallax-e-0');
-
-			((item_t+scroll_t+item_h) < scroll_t) ?
-				item.classList.add('parallax-e-1') : 
-				item.classList.remove('parallax-e-1');
+			if (win_h > item_t && win_h + (win_h / 10) > item_t+item_h) {
+					item.classList.add('parallax-s-0');
+					item.classList.add('parallax-e-0');
+			} else {
+				((item_t+scroll_t-win_h) < scroll_t) ? item.classList.add('parallax-s-0') : item.classList.remove('parallax-s-0');
+				((item_t+scroll_t) < scroll_t) ? item.classList.add('parallax-s-1') : item.classList.remove('parallax-s-1');
+				((item_t+scroll_t-win_h+item_h) < scroll_t) ? item.classList.add('parallax-e-0') : item.classList.remove('parallax-e-0');
+				((item_t+scroll_t+item_h) < scroll_t) ? item.classList.add('parallax-e-1') : item.classList.remove('parallax-e-1');
+			}
 		}
 	}
 }
-newhome.scroll.init();
+
+document.addEventListener("DOMContentLoaded", () => {
+	newhome.scroll.init();
+});
+
+
+
 
