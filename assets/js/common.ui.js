@@ -179,6 +179,7 @@ newhome.scroll = {
 			this.direction = this.y > scroll_pos ? 'up' : this.y < scroll_pos ? 'down' : ''; 
 			this.y = scroll_pos;
 			this.check();
+			document.querySelector('body').dataset.dir = this.direction;
 		}
 		window.addEventListener('scroll', (e) => {
 			last_know_scroll_position = window.scrollY;
@@ -202,7 +203,6 @@ newhome.scroll = {
 			const item_h = item.offsetHeight;
 			const win_h = window.innerHeight;
 			const scroll_t = document.documentElement.scrollTop;
-			console.log(scroll_t, win_h,  item_t+scroll_t, item_t+scroll_t-win_h+item_h,  this.y, this.direction);
 
 			((item_t+scroll_t-win_h) < scroll_t) ?
 				item.classList.add('parallax-s-0') : 
@@ -220,7 +220,6 @@ newhome.scroll = {
 				item.classList.add('parallax-e-1') : 
 				item.classList.remove('parallax-e-1');
 		}
-
 	}
 }
 newhome.scroll.init();
