@@ -166,4 +166,62 @@ $(document).ready(function(){
 		'clickedShowOnly': true,
 		'itemSelector' : '.accordion-group'
 	});
-})
+});
+
+newhome.scroll = {
+	y : 0,
+	direction : 'down',
+	init() {
+		let last_know_scroll_position = 0;
+		let ticking = false;
+
+		const doSomething = (scroll_pos) => {
+			this.direction = this.y > scroll_pos ? 'up' : this.y < scroll_pos ? 'down' : ''; 
+			this.y = scroll_pos;
+			this.check();
+		}
+		window.addEventListener('scroll', (e) => {
+			last_know_scroll_position = window.scrollY;
+
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					doSomething(last_know_scroll_position);
+					ticking = false;
+				});
+
+				ticking = true;
+			}
+		});
+	},
+	check() {
+		const wrap = document.querySelector('.content-wrap');
+		const items = wrap.querySelectorAll('[data-parallax]');
+
+		for (let item of items) {
+			const item_t = item.getBoundingClientRect().top;
+			const item_h = item.offsetHeight;
+			const win_h = window.innerHeight;
+			const scroll_t = document.documentElement.scrollTop;
+			console.log(scroll_t, win_h,  item_t+scroll_t, item_t+scroll_t-win_h+item_h,  this.y, this.direction);
+
+			((item_t+scroll_t-win_h) < scroll_t) ?
+				item.classList.add('parallax-s-0') : 
+				item.classList.remove('parallax-s-0');
+
+			((item_t+scroll_t) < scroll_t) ?
+				item.classList.add('parallax-s-1') : 
+				item.classList.remove('parallax-s-1');
+
+			((item_t+scroll_t-win_h+item_h) < scroll_t) ?
+				item.classList.add('parallax-e-0') : 
+				item.classList.remove('parallax-e-0');
+
+			((item_t+scroll_t+item_h) < scroll_t) ?
+				item.classList.add('parallax-e-1') : 
+				item.classList.remove('parallax-e-1');
+		}
+
+	}
+}
+newhome.scroll.init();
+
