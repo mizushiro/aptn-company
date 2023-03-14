@@ -548,18 +548,12 @@ html.scroll_off {overflow:hidden}
 
     .about-section-8-item {width:calc((100% - 48px) / 7)}
 }
-.bg-vod-item iframe {aspect-ratio:16/9;height:auto}
+.top-video-area {aspect-ratio:16/9;margin-top:48px}
+.top-video-area video {position:relative;left:50%;height:100%;width:100%;max-width:initial;transform:translateX(-50%);object-fit:cover;object-position:top}
+@media (min-width:1024px) {
+    .top-video-area {margin-top:80px}
+}
 
-@media (min-aspect-ratio: 16/9) {
-    .bg-vod-item iframe {
-        height: 56.25vw;
-    }
-}
-@media (max-aspect-ratio: 16/9) {
-    .bg-vod-item iframe {
-        width: 177.78vh;
-    }
-}
 @keyframes slideUp {
     from {
         margin-top:50px;
