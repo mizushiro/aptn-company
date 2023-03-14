@@ -400,10 +400,10 @@ html.scroll_off {overflow:hidden}
 .about-section-8-title {font-size:24px;font-weight:800;color:#000}
 .about-section-8-desc {font-size:16px;font-weight:600;color:#000;margin-top:4px}
 
-.about-section-8-group {margin-top:40px;display:flex;flex-wrap:wrap;gap:4px}
-.about-section-8-item {aspect-ratio:240/90}
+.about-section-8-group {margin-top:40px;display:flex;flex-wrap:wrap;gap:12px}
+.about-section-8-item {aspect-ratio:324/125}
 .about-section-8-item img {width:100%;height:100%;object-fit:contain}
-.about-section-8-item {width:calc((100% - 8px) / 3)}
+.about-section-8-item {width:calc((100% - 24px) / 3)}
 
 @media (min-width:768px) {
     .about-section-1,
@@ -442,8 +442,7 @@ html.scroll_off {overflow:hidden}
 
     .about-section-8-title {font-size:32px}
     .about-section-8-desc {font-size:20px}
-    .about-section-8-group {gap:8px}
-    .about-section-8-item {width:calc((100% - 24px) / 4)}
+    .about-section-8-item {width:calc((100% - 36px) / 4)}
 }
 @media (min-width:1024px) {
     .about-section-1-group {flex-direction:row}
@@ -501,8 +500,8 @@ html.scroll_off {overflow:hidden}
     .about-section-5-item {gap:16px;width:calc((100% - 80px) / 3)}
     .about-section-5-screen-area {margin-top:60px}
 
-    .about-section-8-group {gap:16px 8px}
-    .about-section-8-item {width:calc((100% - 40px) / 6)}
+    .about-section-8-group {gap:16px 12px}
+    .about-section-8-item {width:calc((100% - 48px) / 5)}
 }
 @media (min-width:1280px) {
     .about-section-1-group {gap:100px}
@@ -543,10 +542,9 @@ html.scroll_off {overflow:hidden}
     .about-section-6-item:before {top:11px}
     .btn-gray-round {font-size:20px;padding:16px 60px}
 
+    .about-section-8-group {margin-top:64px}
     .about-section-8-title {font-size:44px}
     .about-section-8-desc {font-size:28px}
-
-    .about-section-8-item {width:calc((100% - 48px) / 7)}
 }
 .top-video-area {aspect-ratio:16/9;margin-top:48px}
 .top-video-area video {position:relative;left:50%;height:100%;width:100%;max-width:initial;transform:translateX(-50%);object-fit:cover;object-position:top}
